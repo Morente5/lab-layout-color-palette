@@ -1,0 +1,19 @@
+
+// Total number of gradient variant color to generate
+// 100% max-lightness-darkness makes last light and dark colors white and black
+
+@mixin generate-bgcolor-palette($name, $color, $total-gradients: 4, $max-lightness-darkness: 60%) {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  @for $i from 1 through $total-gradients {
+    .bg-#{$name}-lighten-#{$i} {
+      // Sorry, I don't like lighten
+      background-color: mix( white, $color, $max-lightness-darkness * $i / $total-gradients);
+    }
+    .bg-#{$name}-darken-#{$i} {
+      // Sorry, I don't like darken
+      background-color: mix(black, $color, $max-lightness-darkness * $i / $total-gradients );
+    }
+  }
+}
