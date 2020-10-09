@@ -1,0 +1,11 @@
+@import 'mixins/bg-color';
+
+$colors: (
+  primary: #04B3AB,
+  secondary: #63C0FF,
+  accent: #C9AAFE,
+);
+
+@each $name, $color in $colors {
+  @include generate-bgcolor-palette($name, $color)
+}
